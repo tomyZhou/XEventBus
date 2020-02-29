@@ -20,8 +20,13 @@ public class TwoActivity extends AppCompatActivity {
         messageEvent.message = "通知前面的两个页面";
         EventBus.getDefault().postEvent(messageEvent);
 
-        NoticeMessage noticeMessage = new NoticeMessage();
-        noticeMessage.count = 3;
-        EventBus.getDefault().postEvent(noticeMessage);
+        new Thread(new Runnable(){
+            @Override
+            public void run() {
+                NoticeMessage noticeMessage = new NoticeMessage();
+                noticeMessage.count = 3;
+                EventBus.getDefault().postEvent(noticeMessage);
+            }
+        }).start();
     }
 }

@@ -12,10 +12,10 @@ import java.util.List;
 import java.util.Map;
 
 /**
+ * 通过读取注解获取方法，通过反射来调用
  *
- *   通过读取注解获取方法，通过反射来调用
- *   @author zhoguang@unipus.cn
- *   @date  2020/2/29 17:31
+ * @author zhoguang@unipus.cn
+ * @date 2020/2/29 17:31
  */
 public class EventBus {
 
@@ -104,9 +104,7 @@ public class EventBus {
         if (list != null && list.size() > 0) {
             for (SubscribeMethodBean bean : list) {
                 try {
-
                     invokeMethod(event, bean);
-
                 } catch (InvocationTargetException e) {
                     e.printStackTrace();
                 } catch (IllegalAccessException e) {
